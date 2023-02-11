@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr row;
+  grid-template-areas:
+    "image sidebar"
+    "slider sidebar";
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(178, 181, 181);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-image {
+  grid-area: image;
+  height: 100%;
+  width: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upload-image {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-image > h1 {
+  font-size: 70px;
+  color: rgb(89, 89, 221);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid black;
+  background-color: rgb(46, 45, 45);
+}
+
+.sidebar-items{
+    padding: 20px 50px 5px 50px;
+    background-color: slategrey;
+    font-size: 20px;
+    outline: none;
+    border-bottom: solid 3px rgb(175, 152, 152) ;
+}
+
+.sidebar-items:hover{
+    background-color: rgb(120, 120, 120);
+}
+
+.sidebar-items.active {
+  background-color: darkslategray;
+}
+
+.slider-container {
+  grid-area: slider;
+}
+.slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+
+.download{
+    background-color: wheat;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 50px 10px 50px;
+    margin-top: 10px;
 }
